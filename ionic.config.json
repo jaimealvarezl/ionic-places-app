@@ -1,0 +1,7 @@
+{
+  "name": "ionic-places-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
