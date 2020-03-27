@@ -1,10 +1,13 @@
-import { Injectable } from '@angular/core';
-import { Place } from './place.model';
+import {Injectable} from '@angular/core';
+import {Place} from './place.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlacesService {
+
+  constructor() {
+  }
 
   private _places: Place[] = [
     new Place(
@@ -34,9 +37,7 @@ export class PlacesService {
     return [...this._places];
   }
 
-  constructor() { }
-
   getPlace(id: string): Place {
-    return { ...this.places.find(place => place.id === id) };
+    return {...this.places.find(place => place.id === id)};
   }
 }

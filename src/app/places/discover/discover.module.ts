@@ -1,12 +1,12 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 
-import { IonicModule } from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
-import { DiscoverPageRoutingModule } from './discover-routing.module';
+import {DiscoverPageRoutingModule} from './discover-routing.module';
 
-import { DiscoverPage } from './discover.page';
+import {DiscoverPage} from './discover.page';
 
 @NgModule({
   imports: [
@@ -17,4 +17,5 @@ import { DiscoverPage } from './discover.page';
   ],
   declarations: [DiscoverPage]
 })
-export class DiscoverPageModule {}
+export class DiscoverPageModule {
+}

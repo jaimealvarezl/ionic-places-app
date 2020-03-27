@@ -10,10 +10,16 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-grid>
+<ion-content class="ion-padding">
+  <ion-segment (ionChange)="onFilterUpdate($event)" value="all">
+    <ion-segment-button value="all">All Places</ion-segment-button>
+    <ion-segment-button value="bookable">Bookable Places</ion-segment-button>
+  </ion-segment>
+
+
+  <ion-grid class="ion-no-padding">
     <ion-row>
-      <ion-col size="12" size-sm="8" offset-sm="2" class="ion-text-center">
+      <ion-col class="ion-text-center" offset-sm="2" size="12" size-sm="8">
         <ion-card>
           <ion-card-header>
             <ion-card-title>{{loadedPlaces[0].title}}</ion-card-title>
@@ -25,8 +31,8 @@
           </ion-card-content>
 
           <div class="ion-text-right">
-            <ion-button fill="clear" color="primary"
-              [routerLink]="[ '/','places', 'tabs', 'discover', loadedPlaces[0].id]">
+            <ion-button [routerLink]="[ '/','places', 'tabs', 'discover', loadedPlaces[0].id]" color="primary"
+                        fill="clear">
               More
             </ion-button>
           </div>
@@ -35,10 +41,10 @@
     </ion-row>
 
     <ion-row>
-      <ion-col size="12" size-sm="8" offset-sm="2" class="ion-text-center">
-        <ion-list>
-          <ion-item *ngFor="let place of loadedPlaces.slice(1)" detail
-            [routerLink]="['/', 'places', 'tabs', 'discover',place.id]">
+      <ion-col class="ion-text-center" offset-sm="2" size="12" size-sm="8">
+        <ion-virtual-scroll [items]="listedLoadedPlaces" approxItemHeight="60px">
+          <ion-item *virtualItem="let place" [routerLink]="['/', 'places', 'tabs', 'discover',place.id]"
+                    detail>
             <ion-thumbnail slot="start">
               <ion-img [src]="place.imageUrl"></ion-img>
             </ion-thumbnail>
@@ -47,7 +53,7 @@
               <p>{{place.description}}</p>
             </ion-label>
           </ion-item>
-        </ion-list>
+        </ion-virtual-scroll>
       </ion-col>
     </ion-row>
   </ion-grid>

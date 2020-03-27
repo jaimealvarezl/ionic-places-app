@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { EditOfferPage } from './edit-offer.page';
+import {EditOfferPage} from './edit-offer.page';
 
 describe('EditOfferPage', () => {
   let component: EditOfferPage;
@@ -9,7 +9,7 @@ describe('EditOfferPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditOfferPage ],
+      declarations: [EditOfferPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

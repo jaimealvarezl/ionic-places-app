@@ -1,12 +1,12 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 
-import { IonicModule } from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
-import { OfferBookingsPageRoutingModule } from './offer-bookings-routing.module';
+import {OfferBookingsPageRoutingModule} from './offer-bookings-routing.module';
 
-import { OfferBookingsPage } from './offer-bookings.page';
+import {OfferBookingsPage} from './offer-bookings.page';
 
 @NgModule({
   imports: [
@@ -17,4 +17,5 @@ import { OfferBookingsPage } from './offer-bookings.page';
   ],
   declarations: [OfferBookingsPage]
 })
-export class OfferBookingsPageModule {}
+export class OfferBookingsPageModule {
+}

@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { IonicModule } from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
-import { PlacesPageRoutingModule } from './places-routing.module';
+import {PlacesPageRoutingModule} from './places-routing.module';
 
-import { PlacesPage } from './places.page';
+import {PlacesPage} from './places.page';
 
 @NgModule({
   imports: [
@@ -15,4 +15,5 @@ import { PlacesPage } from './places.page';
   ],
   declarations: [PlacesPage]
 })
-export class PlacesPageModule { }
+export class PlacesPageModule {
+}

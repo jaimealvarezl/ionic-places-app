@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { DiscoverPage } from './discover.page';
+import {DiscoverPage} from './discover.page';
 
 describe('DiscoverPage', () => {
   let component: DiscoverPage;
@@ -9,7 +9,7 @@ describe('DiscoverPage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DiscoverPage ],
+      declarations: [DiscoverPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

@@ -1,12 +1,12 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 
-import { IonicModule } from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
-import { EditOfferPageRoutingModule } from './edit-offer-routing.module';
+import {EditOfferPageRoutingModule} from './edit-offer-routing.module';
 
-import { EditOfferPage } from './edit-offer.page';
+import {EditOfferPage} from './edit-offer.page';
 
 @NgModule({
   imports: [
@@ -17,4 +17,5 @@ import { EditOfferPage } from './edit-offer.page';
   ],
   declarations: [EditOfferPage]
 })
-export class EditOfferPageModule {}
+export class EditOfferPageModule {
+}
