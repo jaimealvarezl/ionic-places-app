@@ -9,13 +9,13 @@ import {AuthPageRoutingModule} from './auth-routing.module';
 import {AuthPage} from './auth.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    AuthPageRoutingModule
-  ],
-  declarations: [AuthPage]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        AuthPageRoutingModule
+    ],
+    declarations: [AuthPage]
 })
 export class AuthPageModule {
 }

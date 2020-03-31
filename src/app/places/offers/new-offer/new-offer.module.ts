@@ -9,13 +9,13 @@ import {NewOfferPageRoutingModule} from './new-offer-routing.module';
 import {NewOfferPage} from './new-offer.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    NewOfferPageRoutingModule
-  ],
-  declarations: [NewOfferPage]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        NewOfferPageRoutingModule
+    ],
+    declarations: [NewOfferPage]
 })
 export class NewOfferPageModule {
 }

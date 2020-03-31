@@ -1,23 +1,41 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Authenticate</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>Authenticate</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <ion-grid>
+            <ion-row>
+                <ion-col offsetSm="3" sizeSm="6">
+                    <ion-list>
+                        <ion-item>
+                            <ion-label position="floating">Email</ion-label>
+                            <ion-input email name="email" ngModel required type="email"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label position="floating">Password</ion-label>
+                            <ion-input minlength="6" name="password" ngModel required type="password"></ion-input>
+                        </ion-item>
+                    </ion-list>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col offsetSm="3" sizeSm="6">
+                    <ion-button color="primary" expand="block" fill="clear" type="button">Switch to Login</ion-button>
+                    <ion-button (click)="onLogin()" expand="block" type="submit">Login</ion-button>
+
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </form>
 
 
-  <ion-list>
-    <ion-item>
-      <ion-label position="floating">Email</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-  </ion-list>
+    <!--  <div class="ion-text-center">
+        <ion-spinner color="primary" *ngIf="isLoading"></ion-spinner>
+      </div>-->
 
-  <!--  <div class="ion-text-center">
-      <ion-spinner color="primary" *ngIf="isLoading"></ion-spinner>
-    </div>-->
-  <ion-button (click)="onLogin()" color="primary">
-    Login
-  </ion-button>
+
 </ion-content>

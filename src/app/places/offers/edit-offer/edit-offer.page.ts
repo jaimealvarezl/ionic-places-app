@@ -5,29 +5,29 @@ import {Place} from '../../place.model';
 import {NavController} from '@ionic/angular';
 
 @Component({
-  selector: 'app-edit-offer',
-  templateUrl: './edit-offer.page.html',
-  styleUrls: ['./edit-offer.page.scss'],
+    selector: 'app-edit-offer',
+    templateUrl: './edit-offer.page.html',
+    styleUrls: ['./edit-offer.page.scss'],
 })
 export class EditOfferPage implements OnInit {
-  place: Place;
+    place: Place;
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private navCtrl: NavController,
-    private placesService: PlacesService,
-  ) {
-  }
+    constructor(
+        private activatedRoute: ActivatedRoute,
+        private navCtrl: NavController,
+        private placesService: PlacesService,
+    ) {
+    }
 
-  ngOnInit() {
-    this.activatedRoute.paramMap.subscribe(paramMap => {
-      if (!paramMap.has('placeId')) {
-        this.navCtrl.navigateBack('/places/tabs/offers');
-        return;
-      }
+    ngOnInit() {
+        this.activatedRoute.paramMap.subscribe(paramMap => {
+            if (!paramMap.has('placeId')) {
+                this.navCtrl.navigateBack('/places/tabs/offers');
+                return;
+            }
 
-      this.place = this.placesService.getPlace(paramMap.get('placeId'));
-    });
-  }
+            this.place = this.placesService.getPlace(paramMap.get('placeId'));
+        });
+    }
 
 }
