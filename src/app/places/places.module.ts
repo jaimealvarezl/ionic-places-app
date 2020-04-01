@@ -8,12 +8,12 @@ import {PlacesPageRoutingModule} from './places-routing.module';
 import {PlacesPage} from './places.page';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        IonicModule,
-        PlacesPageRoutingModule
-    ],
-    declarations: [PlacesPage]
+  imports: [
+    CommonModule,
+    IonicModule,
+    PlacesPageRoutingModule
+  ],
+  declarations: [PlacesPage]
 })
 export class PlacesPageModule {
 }

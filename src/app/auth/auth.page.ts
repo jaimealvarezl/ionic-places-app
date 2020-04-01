@@ -5,36 +5,54 @@ import {LoadingController} from '@ionic/angular';
 import {NgForm} from '@angular/forms';
 
 @Component({
-    selector: 'app-auth',
-    templateUrl: './auth.page.html',
-    styleUrls: ['./auth.page.scss'],
+  selector: 'app-auth',
+  templateUrl: './auth.page.html',
+  styleUrls: ['./auth.page.scss'],
 })
 export class AuthPage implements OnInit {
-    isLoading = false;
+  isLoading = false;
+  isLogin = true;
 
-    constructor(private authService: AuthService, private router: Router, private loadingCtrl: LoadingController) {
+  constructor(private authService: AuthService, private router: Router, private loadingCtrl: LoadingController) {
+  }
+
+  ngOnInit() {
+  }
+
+  onLogin() {
+    this.authService.login();
+
+    this.loadingCtrl.create({keyboardClose: true, message: 'Logging in...'}).then(loadingEl => {
+      loadingEl.present();
+
+      setTimeout(() => {
+        this.isLoading = false;
+        loadingEl.dismiss();
+        this.isLoading = true;
+        this.router.navigateByUrl('/places/tabs/discover');
+      }, 1000);
+    });
+
+  }
+
+  onSubmit(form: NgForm) {
+    if (!form.valid) {
+      return;
     }
 
-    ngOnInit() {
-    }
+    const email = form.value.email;
+    const password = form.value.password;
+    console.log(email, password);
 
-    onLogin() {
-        this.authService.login();
 
-        this.loadingCtrl.create({keyboardClose: true, message: 'Logging in...'}).then(loadingEl => {
-            loadingEl.present();
+    if (this.isLogin) {
 
-            setTimeout(() => {
-                this.isLoading = false;
-                loadingEl.dismiss();
-                this.isLoading = true;
-                this.router.navigateByUrl('/places/tabs/discover');
-            }, 1000);
-        });
+    } else {
 
     }
+  }
 
-    onSubmit(f: NgForm) {
-        console.log(f);
-    }
+  onSwitchAuthMode() {
+    this.isLogin = !this.isLogin;
+  }
 }
