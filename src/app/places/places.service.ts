@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Place} from './place.model';
 import {AuthService} from '../auth/auth.service';
 import {BehaviorSubject, Observable, timer} from 'rxjs';
-import {map, take} from 'rxjs/operators';
+import {delay, map, take, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class PlacesService {
       149.99,
       new Date('2019-01-01'),
       new Date('2019-12-31'),
-      'abc'
+      'abs'
     ),
     new Place(
       'p2',
@@ -41,11 +41,10 @@ export class PlacesService {
     )
   ]);
 
-
   constructor(private  authService: AuthService) {
   }
 
-  get places() {
+  get places(): Observable<Place[]> {
     return this.placesSubject.asObservable();
   }
 
@@ -55,6 +54,30 @@ export class PlacesService {
       map(places => {
         return {...places.find(p => p.id === id)};
       }));
+  }
+
+  updateOffer(placeId: string, title: string, description: string) {
+    return this.places.pipe(
+      take(1),
+      delay(1000),
+      tap((places) => {
+        const updatedPlaceIndex = places.findIndex(pl => pl.id === placeId);
+        const updatedPlaces = [...places];
+
+        const oldPlace = updatedPlaces[updatedPlaceIndex];
+        updatedPlaces[updatedPlaceIndex] = new Place(
+          oldPlace.id,
+          title,
+          description,
+          oldPlace.imageUrl,
+          oldPlace.price,
+          oldPlace.availableFrom,
+          oldPlace.availableTo,
+          oldPlace.userId);
+
+        this.placesSubject.next(updatedPlaces);
+      })
+    );
   }
 
   addPlace(title: string, description: string, price: number, dateFrom: Date, dateTo: Date) {
@@ -68,8 +91,11 @@ export class PlacesService {
       dateTo,
       this.authService.userId
     );
-    timer(1000).subscribe(() => {
-      this.placesSubject.next(this.placesSubject.value.concat(place));
-    });
+
+    return timer(1000).pipe(
+      tap(() => {
+        this.placesSubject.next(this.placesSubject.value.concat(place));
+      })
+    );
   }
 }

@@ -61,23 +61,23 @@
           <ion-item>
             <ion-label position="floating">To</ion-label>
             <ion-datetime
-                    [max]="selectedPlace.availableTo.toISOString()"
-                    [min]="startDateCtrl.value"
-                    [ngModel]="endDate"
-                    displayFormat="MMM DD YYYY"
-                    name="date-to"
-                    pickerFormat="YY MM DD"
-                    required></ion-datetime>
+                [max]="selectedPlace.availableTo.toISOString()"
+                [min]="startDateCtrl.value"
+                [ngModel]="endDate"
+                displayFormat="MMM DD YYYY"
+                name="date-to"
+                pickerFormat="YY MM DD"
+                required></ion-datetime>
           </ion-item>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col offsetSm="3" sizeSm="3">
           <ion-button
-                  [disabled]="!f.valid || !datesValid()"
-                  color="primary"
-                  expand="block"
-                  type="submit">Book!
+              [disabled]="!f.valid || !datesValid()"
+              color="primary"
+              expand="block"
+              type="submit">Book!
           </ion-button>
         </ion-col>
       </ion-row>

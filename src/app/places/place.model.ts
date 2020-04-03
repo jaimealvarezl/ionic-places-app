@@ -7,7 +7,7 @@ export class Place {
     public price: number,
     public availableFrom: Date,
     public availableTo: Date,
-    public useId: string
+    public userId: string
   ) {
 
   }
