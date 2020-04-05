@@ -11,13 +11,20 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-segment (ionChange)="onFilterUpdate($event)" value="all">
+  <ion-segment (ionChange)="onFilterUpdate($event.target.value)" value="all">
     <ion-segment-button value="all">All Places</ion-segment-button>
     <ion-segment-button value="bookable">Bookable Places</ion-segment-button>
   </ion-segment>
 
+  <ion-grid *ngIf="!relevantPlaces || relevantPlaces.length <= 0">
+    <ion-row>
+      <ion-col class="ion-text-center" offset-sm="2" size="12" size-sm="8">
+        <p>There are no bookable places right now, please come back later!</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <ion-grid class="ion-no-padding">
+  <ion-grid *ngIf="relevantPlaces.length > 0">
     <ion-row>
       <ion-col class="ion-text-center" offset-sm="2" size="12" size-sm="8">
         <ion-card>

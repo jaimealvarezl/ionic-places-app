@@ -10,7 +10,10 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col offsetMd="2" sizeMd="8">
+      <ion-col *ngIf="loadedBookings?.length === 0" class="ion-text-center" offsetMd="3" sizeMd="6">
+        <p>No bookings found</p>
+      </ion-col>
+      <ion-col *ngIf="loadedBookings?.length > 0" offsetMd="3" sizeMd="6">
         <ion-list>
           <ion-item-sliding #ionItemSliding *ngFor="let booking of loadedBookings">
             <ion-item>
